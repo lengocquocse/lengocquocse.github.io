@@ -8,4 +8,17 @@
 <body>
   <h1>Test static page from GitHub page</h1>
 </body>
+  <script>
+    fetch('https://67da4b7735c87309f52bd5e5.mockapi.io/test/personal-info')
+      .then(response => response.json())
+      .then(data => {
+        const infoList = document.createElement('ul');
+        document.body.appendChild(infoList);
+        data.forEach(item => {
+          const infoItem = document.createElement('li');
+          infoItem.textContent = `${item.name}`;
+          infoList.appendChild(infoItem);
+        });
+      });
+  </script>
 </html>
